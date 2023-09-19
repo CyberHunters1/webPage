@@ -1,9 +1,0 @@
-{"require": {
-    "ramsey/uuid": "*",
-    "kreait/firebase-php": "*",
-    "google/auth": "*",
-        "google/cloud": "*"
-        
-}
-
-}
