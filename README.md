@@ -1,2 +1,3 @@
-# webPage
-this is a webpage developed by cyberhunters
+# Portafolio ICO
+
+Página web principal para el proyecto de Habilidades directivas.
