@@ -1,50 +1,9 @@
 <?php
 session_start();
-$alert = '';
 if (!empty($_SESSION['active'])) {
-  header('location: sistema/');
-} else {
-
-  if (!empty($_POST)) {
-    if (empty($_POST['usuario'])) {
-      $alert = '<div class="alert alert-danger" role="alert">
-      Ingrese su usuario y su clave
-      </div>';
-    } else {
-
-      require_once 'conexion.php';
-  
-      $collection = $_SESSION['conexion']->collection('empleados');
-      $document = $collection->document($_POST['usuario']);
-      $snapshot = $document->snapshot();
-      
-      
-      if (!$snapshot->exists()) {
-        $alert = '<div class="alert alert-danger" role="alert">
-        Usuario no registrado.
-        </div>';
-        session_destroy();
-
-      } else {
-
-        $data=$snapshot->data();
-        if ($data['password'] != $_POST['clave']){
-          $alert = '<div class="alert alert-danger" role="alert">
-          Contraseña erronea.
-          </div>';
-          session_destroy();
-        }
-        else{
-          setcookie("rol", $data['rol'], time() + 3600, "/");
-          setcookie("active", true, time() + 3600, "/");
-
-          
-          header('location: sistema/');
-        }
-      }
-    }
+    header('location: sistema/');
   }
-}
+
 ?>
 
 
@@ -69,8 +28,8 @@ if (!empty($_SESSION['active'])) {
       <div >
         <h1 >Iniciar Sesión</h1>
       </div>
-      <form method="POST">
-        <?php echo isset($alert) ? $alert : ""; ?>
+      <form action="func.php" method="POST">
+        
         <div class="form-group">
           <label for="usuario">Usuario</label>
           <input type="text"  placeholder="Usuario" name="usuario" id="usuario">

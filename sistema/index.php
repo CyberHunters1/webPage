@@ -5,7 +5,6 @@ $_SESSION['rol'] = $_COOKIE['rol'];
 setcookie("active", "", time() - 3600, "/");
 setcookie("rol", "", time() - 3600, "/");
 
-
 require_once "../conexion.php";
 
 if (empty($_SESSION['active'])) {
