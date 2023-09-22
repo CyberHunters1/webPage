@@ -20,9 +20,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       session_destroy();
     }
     else{
+
       $data=$snapshot->data();
       $key=str_replace($caracteresEspeciales, '', $_POST['clave']);
-
       $key = hash('sha256', $key);
 
       if ($data['password'] != $key){
@@ -32,12 +32,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       else{
 
         $_SESSION['active']=true;
-
         setcookie("rol", $data['rol'], time() + 3600, "/");
-        setcookie("active", true, time() + 3600, "/");
-
-        
+        setcookie("active", true, time() + 3600, "/"); 
         header('location: sistema/');
+        
       }
     }
   }
