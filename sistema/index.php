@@ -34,7 +34,7 @@ if (empty($_SESSION['active'])) {
     <link rel="stylesheet" href="../src/css/owl.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
-    <link rel="stylesheet" href="../src/css/Styles_inicio.css">
+    <link rel="stylesheet" href="../css/Styles_inicio.css">
 
     <link rel="shortcut icon" href="../src/images/cyberhunter_logo.png" />
 </head>
@@ -54,11 +54,12 @@ if (empty($_SESSION['active'])) {
                 </li>
 
                 <li>
-                <form action="close.php" method="post" class="logout d-inline">
-                  <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>
-                      Cerrar sesión
-                  </button>
-                </form></li>
+                    <form action="close.php" method="post" class="logout d-inline">
+                        <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>
+                            Cerrar sesión
+                        </button>
+                    </form>
+                </li>
             </ul>
         </nav>
     </header>
@@ -90,11 +91,18 @@ if (empty($_SESSION['active'])) {
                 <div class="left-content">
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
-                    <button id="get_empleados">Obtener Empleados</button>    
-
-
-                    <div id="respuesta"></div>
-                    <div id="respuesta2"></div>
+                    <table id="datatable_users" class="table">
+                        <thead>
+                            <tr>
+                                <th class="centered">#</th>
+                                <th class="centered">Nombre</th>
+                                <th class="centered">Email</th>
+                                <th class="centered">Direccion</th>
+                                <th class="centered">Compañia</tth>
+                            </tr>
+                        </thead>
+                        <tbody id="tableBody_Users"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
@@ -113,6 +121,7 @@ if (empty($_SESSION['active'])) {
             </div>
         </div>
     </footer>
+
     <script src="../src/js/jquery/jquery.min.js"></script>
     <script src="../src/js/bootstrap.bundle.min.js"></script>
 
@@ -125,28 +134,18 @@ if (empty($_SESSION['active'])) {
     <!--<script src="../src/js/custom.js"></script>  Esta cosa genera un error en bucle-->
     <script src="../src/js/main.js"></script>
 
-    <script>
-      $(document).ready(function() {
-          $('#get_empleados').click(function() {
-              $.ajax({
-                  url: 'func.php',
-                  method: 'GET',
-                  data: {
-                      accion: 'obtener_empleados'
-                  },
-                  success: function(data) {
-                      $('#respuesta').html(data);
-                      //$('#respuesta2').html(JSON.parse(data));
-                      $('#get_empleados').hide();
-
-                  },
-                  error: function() {
-                      $('#respuesta').html('Error al obtener empleados.');
-                  }
-              });
-          });
-      });
+    <!-- Bootstrap-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
     </script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- DataTable -->
+    <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
+
+    <script src="../js/table.js"></script>
+    
 </body>
 
 </html>

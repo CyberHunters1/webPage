@@ -27,6 +27,7 @@ if (isset($_GET['accion'])) {
         } else {
             echo json_encode(array('mensaje' => 'No se encontraron datos en Firebase.'));
         }
+
         echo json_encode($empleados, JSON_UNESCAPED_UNICODE);
 
     } else {

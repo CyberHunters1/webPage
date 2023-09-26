@@ -1,2 +1,4 @@
 vendor/
 src/
+.vs/
+.vscode/
