@@ -1,88 +1,74 @@
 <?php
 session_start();
-$alert = '';
 if (!empty($_SESSION['active'])) {
-  header('location: sistema/');
-} else {
-
-  if (!empty($_POST)) {
-    if (empty($_POST['usuario'])) {
-      $alert = '<div class="alert alert-danger" role="alert">
-      Ingrese su usuario y su clave
-      </div>';
-    } else {
-
-      require_once 'conexion.php';
-  
-      $collection = $_SESSION['conexion']->collection('empleados');
-      $document = $collection->document($_POST['usuario']);
-      $snapshot = $document->snapshot();
-      
-      
-      if (!$snapshot->exists()) {
-        $alert = '<div class="alert alert-danger" role="alert">
-        Usuario no registrado.
-        </div>';
-        session_destroy();
-
-      } else {
-
-        $data=$snapshot->data();
-        if ($data['password'] != $_POST['clave']){
-          $alert = '<div class="alert alert-danger" role="alert">
-          Contraseña erronea.
-          </div>';
-          session_destroy();
-        }
-        else{
-          setcookie("rol", $data['rol'], time() + 3600, "/");
-          setcookie("active", true, time() + 3600, "/");
-
-          
-          header('location: sistema/');
-        }
-      }
-    }
+    header('location: sistema/');
   }
-}
+
 ?>
 
 
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
-
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-
-  <title>Inventario Graph</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="src/css/Styles.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
+    rel="stylesheet" />
+  <title>CyberHunters</title>
+  <!-- Bootstrap core CSS -->
+  <link href="./src/css/bootstrap.min.css" rel="stylesheet" />
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="./src/css/fontawesome.css" />
+  <link rel="stylesheet" href="./src/css/templatemo-grad-school.css" />
+  <link rel="stylesheet" href="./src/css/owl.css" />
+  <link rel="stylesheet" href="./src/css/lightbox.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="shortcut icon" href="./src/images/cyberhunter_logo.png" />
 
 </head>
 
-<body >
-  <div >
-    <div >
-      <h1 style="text-align:center;">Sistema de Inventario ING-GRAPH</h1>
+<body>
+
+  <header class="main-header clearfix" role="header">
+    <div class="logo">
+      <a href="#"><em>Cyber</em>Hunt<em>ers</em></a>
     </div>
-    <div >
-      <div >
-        <h1 >Iniciar Sesión</h1>
-      </div>
-      <form method="POST">
-        <?php echo isset($alert) ? $alert : ""; ?>
-        <div class="form-group">
-          <label for="usuario">Usuario</label>
-          <input type="text"  placeholder="Usuario" name="usuario" id="usuario">
+  </header>
+  <main>
+    <div class="Formulario p-4">
+      <h1>Inicio de Sesión </h1>
+      <form action="func.php" method="POST">
+        <div class="Username">
+          <input type="text" placeholder="Usuario" name="usuario" id="usuario">
+          
         </div>
-        <div class="form-group">
-          <label for="clave">Contraseña</label>
+        <div class="Username">
           <input type="password" placeholder="Contraseña" name="clave" id="clave">
+
         </div>
-        <input type="submit" value="Iniciar" >
+        <input type="submit" value="Iniciar">
       </form>
     </div>
-  </div>
+  </main>
+
+  <footer>
+    <div class="pie-de-pagina">
+      <div class="col-md-12">
+        <p>
+          <i class="fa fa-copyright"></i> Copyright 2023 by Cyberhunters |
+          Diseño:
+          <a href="https://templatemo.com" rel="sponsored" target="_parent">Cyberhunters</a>
+        </p>
+      </div>
+    </div>
+    </div>
+  </footer>
+
+
 </body>
 
 </html>
