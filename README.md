@@ -1,4 +1,4 @@
-# Sisrema de nómina 
+# Sistema de nómina 
 
 Este sistema de nómina es para la clase de Seguridad Informática 
 
