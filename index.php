@@ -15,19 +15,19 @@ if (!empty($_SESSION['active'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="src/css/Styles.css">
+  <link rel="stylesheet" href="./css/Styles.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
     rel="stylesheet" />
   <title>CyberHunters</title>
   <!-- Bootstrap core CSS -->
-  <link href="./src/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="src/css/bootstrap.min.css" rel="stylesheet" />
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="./src/css/fontawesome.css" />
-  <link rel="stylesheet" href="./src/css/templatemo-grad-school.css" />
-  <link rel="stylesheet" href="./src/css/owl.css" />
-  <link rel="stylesheet" href="./src/css/lightbox.css" />
+  <link rel="stylesheet" href="src/css/fontawesome.css" />
+  <link rel="stylesheet" href="src/css/templatemo-grad-school.css" />
+  <link rel="stylesheet" href="src/css/owl.css" />
+  <link rel="stylesheet" href="src/css/lightbox.css" />
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="shortcut icon" href="./src/images/cyberhunter_logo.png" />
+  <link rel="shortcut icon" href="src/images/cyberhunter_logo.png" />
 
 </head>
 
