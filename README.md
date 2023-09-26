@@ -1,3 +1,10 @@
-# Portafolio ICO
+# Sisrema de nómina 
 
-Página web principal para el proyecto de Habilidades directivas.
+Este sistema de nómina es para la clase de Seguridad Informática 
+
+
+## Requerimientos:
+
+- PHP ^8.0
+- Composer *
+- gRPC
