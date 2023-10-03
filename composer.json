@@ -2,7 +2,8 @@
     "ramsey/uuid": "*",
     "kreait/firebase-php": "*",
     "google/auth": "*",
-        "google/cloud": "*"
+        "google/cloud": "*",
+        "grpc/grpc":"*"
         
 }
 

@@ -18,6 +18,8 @@
 .centered{
     text-align: center !important;
     vertical-align: middle !important;
+    background-color: #3368FF;
+    color: white;
     }
 
 #datatable_users {

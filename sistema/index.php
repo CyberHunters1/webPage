@@ -37,6 +37,14 @@ if (empty($_SESSION['active'])) {
     <link rel="stylesheet" href="../css/Styles_inicio.css">
 
     <link rel="shortcut icon" href="../src/images/cyberhunter_logo.png" />
+    <!-- Font Awesome -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+            crossorigin="anonymous"
+            referrerpolicy="no-referrer"
+    />
 </head>
 
 <body>
@@ -99,6 +107,8 @@ if (empty($_SESSION['active'])) {
                                 <th class="centered">Email</th>
                                 <th class="centered">Direccion</th>
                                 <th class="centered">Compañia</tth>
+                                <th class="centered">Estado</tth>
+                                <th class="centered">Editar</tth>
                             </tr>
                         </thead>
                         <tbody id="tableBody_Users"></tbody>
