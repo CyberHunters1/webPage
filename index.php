@@ -41,7 +41,7 @@ if (!empty($_SESSION['active'])) {
   <main>
     <div class="Formulario p-4">
       <h1>Inicio de Sesión </h1>
-      <form action="func.php" method="POST">
+      <form action="login.php" method="POST">
         <div class="Username">
           <input type="text" placeholder="Usuario" name="usuario" id="usuario">
           

@@ -15,6 +15,8 @@ if (isset($_GET['accion'])) {
         if (!empty($documents)) {
             foreach ($documents as $document) {
                 $dato = $document->data();
+                $id_doc = $document->name();
+                $id_doc = substr($id_doc, strrpos($id_doc, '/') + 1);
                 $empleado = array(
                     'rfc' => $dato['rfc'],
                     'nombre' => mb_convert_encoding($dato['nombre'], "UTF-8", mb_detect_encoding($dato['nombre'])),
@@ -22,7 +24,7 @@ if (isset($_GET['accion'])) {
                     'ap_m' => mb_convert_encoding($dato['ap_m'], "UTF-8", mb_detect_encoding($dato['ap_m'])),
                     'salario' => $dato['salario'],
                 );
-                $empleados[] = $empleado;
+                $empleados[$id_doc] = $empleado;
             }
         } else {
             echo json_encode(array('mensaje' => 'No se encontraron datos en Firebase.'));

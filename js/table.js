@@ -24,52 +24,37 @@ const dataTableOptions={
 
 
 };
+
+
 const initDataTable = async (dat) => {
     if (dataTableIsInitialized) {
         dataTable.destroy();
     }
 
-    await listUsers(dat);
-
-    dataTable = $("#datatable_users").DataTable(dataTableOptions);
-
-    dataTableIsInitialized = true;
-};
-
-const listUsers = async(dat)=>{
-    try {
-        /*const response =await fetch('data.json');*/
-        let users = JSON.parse(dat);
-
-        let content=``;
-        users.forEach((user, index)=>{
-            content +=`
-            <tr>
-                <td>${index + 1}</td>
-                <td>${user.rfc}</td>
-                <td>${user.nombre}</td>
-                <td>${user.ap_p}</td>
-                <td>${user.salario}</td>
-              
-               
-            </tr>`
-        });
-
-        tableBody_Users.innerHTML=content;
-        console.log(content);
-    } catch (ex) {
-        console.log(ex);
-        alert(ex);
-
-        
-    }
+    $.ajax({
+        url: '../sistema/table.php',
+        method: 'GET',
+        async: true,
+        data: {
+            accion: 'imp_tabla',
+            users: JSON.parse(dat),
+        },
+        success: function(response) {
+            tableBody_Users.innerHTML = response;
+            dataTable = $("#datatable_users").DataTable(dataTableOptions);
+            dataTableIsInitialized = true;
+        },
+        error: function() {
+            $('#respuesta').html('Error al obtener empleados.');
+        }
+    });
 };
 
 
 
 $(document).ready(function() {
     $.ajax({
-        url: 'func.php',
+        url: '../sistema/get_employees.php',
         method: 'GET',
         data: {
             accion: 'obtener_empleados'
@@ -89,3 +74,17 @@ $(document).ready(function() {
 window.addEventListener("DOMContentLoaded", async () => {
     await initDataTable();
 });*/
+
+/*
+<?php if ($_SESSION['rol'] == 1) { ?>
+    <td>
+        <a href="clientes_alter.php?id=<?php echo $dato['id_cliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
+        <!--
+        <form method="post" class="confirmar d-inline">
+            <input type="hidden" name="id" value="<?php //echo $dato['id_cliente']; ?>">
+            <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i>
+            </button>
+        </form>
+        -->
+    </td>
+<?php } ?>*/

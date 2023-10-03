@@ -3,7 +3,7 @@ session_start();
 $_SESSION['active'] = $_COOKIE['active'];
 $_SESSION['rol'] = $_COOKIE['rol'];
 setcookie("active", "", time() - 3600, "/");
-setcookie("rol", "", time() - 3600, "/");
+
 ini_set('display_errors', 0);
 
 require_once "../conexion.php";
@@ -91,14 +91,17 @@ if (empty($_SESSION['active'])) {
                 <div class="left-content">
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
-                    <table id="datatable_users" class="table">
+                    <table id="datatable_users" class="table table-striped table-bordered" >
                         <thead>
                             <tr>
-                                <th class="centered">#</th>
+                                <th class="centered">Indice</th>
+                                <th class="centered">RFC</th>
                                 <th class="centered">Nombre</th>
-                                <th class="centered">Email</th>
-                                <th class="centered">Direccion</th>
-                                <th class="centered">Compañia</tth>
+                                <th class="centered">Apellido</th>
+                                <th class="centered">Salario</th>
+                                <?php if ($_SESSION['rol'] == 1) { ?>
+                                    <th class="centered">Acciones</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody id="tableBody_Users"></tbody>
