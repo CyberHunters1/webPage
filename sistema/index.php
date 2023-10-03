@@ -106,9 +106,9 @@ if (empty($_SESSION['active'])) {
                                 <th class="centered">Nombre</th>
                                 <th class="centered">Email</th>
                                 <th class="centered">Direccion</th>
-                                <th class="centered">Compañia</tth>
-                                <th class="centered">Estado</tth>
-                                <th class="centered">Editar</tth>
+                                <th class="centered">Compañia</th>
+                                <th class="centered">Estado</th>
+                                <th class="centered">Editar</th>
                             </tr>
                         </thead>
                         <tbody id="tableBody_Users"></tbody>
