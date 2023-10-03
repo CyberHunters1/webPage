@@ -70,23 +70,3 @@ $(document).ready(function() {
     });
 });
 
-
-
-/*
-window.addEventListener("DOMContentLoaded", async () => {
-    await initDataTable();
-});*/
-
-/*
-<?php if ($_SESSION['rol'] == 1) { ?>
-    <td>
-        <a href="clientes_alter.php?id=<?php echo $dato['id_cliente']; ?>" class="btn btn-success"><i class='fas fa-edit'></i></a>
-        <!--
-        <form method="post" class="confirmar d-inline">
-            <input type="hidden" name="id" value="<?php //echo $dato['id_cliente']; ?>">
-            <button class="btn btn-danger" type="submit"><i class='fas fa-trash-alt'></i>
-            </button>
-        </form>
-        -->
-    </td>
-<?php } ?>*/
