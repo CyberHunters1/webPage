@@ -43,6 +43,8 @@ const initDataTable = async (dat) => {
             tableBody_Users.innerHTML = response;
             dataTable = $("#datatable_users").DataTable(dataTableOptions);
             dataTableIsInitialized = true;
+
+
         },
         error: function() {
             $('#respuesta').html('Error al obtener empleados.');

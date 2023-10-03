@@ -2,7 +2,6 @@
 header('Content-Type: text/html; charset=UTF-8');
 require_once "../conexion.php";
 session_start();
-$_SESSION['rol'] = $_COOKIE['rol'];
 
 if (isset($_GET['accion'])) {
     $accion = $_GET['accion'];
@@ -35,8 +34,6 @@ if (isset($_GET['accion'])) {
             $content .= '</tr>';
             $cont++;
         }
-
-        setcookie("rol", "", time() - 3600, "/");
 
         echo $content;
     }

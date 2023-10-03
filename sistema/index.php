@@ -1,12 +1,12 @@
 <?php
 session_start();
-$_SESSION['active'] = $_COOKIE['active'];
+/*$_SESSION['active'] = $_COOKIE['active'];
 $_SESSION['rol'] = $_COOKIE['rol'];
-setcookie("active", "", time() - 3600, "/");
+setcookie("active", "", time() - 3600, "/");*/
 
 ini_set('display_errors', 0);
 
-require_once "../conexion.php";
+//require_once "../conexion.php";
 
 if (empty($_SESSION['active'])) {
 	header('location: ../');

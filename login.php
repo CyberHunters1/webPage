@@ -9,9 +9,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'Error de inicio de sesión';
   } else {
 
-    require_once 'conexion.php';
+   require_once 'conexion.php';
 
-    $collection = $_SESSION['conexion']->collection('empleados');
+    $collection = $firestore->collection('empleados');
     $document = $collection->document($_POST['usuario']);
     $snapshot = $document->snapshot();
     
@@ -32,8 +32,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       else{
 
         $_SESSION['active']=true;
-        setcookie("rol", $data['rol'], time() + 3600, "/");
-        setcookie("active", true, time() + 3600, "/"); 
+        $_SESSION['rol']=$data['rol'];
+        
         header('location: sistema/');
         
       }

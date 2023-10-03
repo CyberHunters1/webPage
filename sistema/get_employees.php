@@ -1,13 +1,13 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
-require_once "../conexion.php";
-
 
 if (isset($_GET['accion'])) {
     $accion = $_GET['accion'];
 
     if ($accion === 'obtener_empleados') {
-        $collection = $_SESSION['conexion']->collection('empleados');
+        require "../conexion.php";
+
+        $collection = $firestore->collection('empleados');
         $documents = $collection->documents();
 
         $empleados = array();
