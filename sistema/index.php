@@ -72,7 +72,7 @@ if (empty($_SESSION['active'])) {
         </nav>
     </header>
 
-    <section class="section main-banner" id="top" data-section="section1">
+      <!--<section class="section main-banner" id="top" data-section="section1">
         <video autoplay muted loop id="bg-video" width="100%">
             <source src="../src/images/dinoram.mp4" type="video/mp4" />
         </video>
@@ -90,13 +90,14 @@ if (empty($_SESSION['active'])) {
                 </div>
             </div>
         </div>
-    </section>
+    </section> -->
 
     <section class="section video" data-section="section5">
         <div class="container">
 
             <div class="cont_centro">
                 <div class="left-content">
+                    <div .puff-in-center>
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
                     <table id="datatable_users" class="table">
@@ -113,6 +114,7 @@ if (empty($_SESSION['active'])) {
                         </thead>
                         <tbody id="tableBody_Users"></tbody>
                     </table>
+                    </div>
                 </div>
             </div>
         </div>
