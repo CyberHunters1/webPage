@@ -1,0 +1,30 @@
+.cont_centro {
+    border: 1px solid #ccc;
+    text-align: center; /* Centrar el contenido horizontalmente */
+    background-color: transparent;
+    padding: 20px; /* Espaciado interno para el contenido */
+}
+/*.left-content{
+    
+    background-color: white;
+    
+}*/
+.centrar-tabla {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Esto centra verticalmente el contenedor */
+}
+.centered{
+    text-align: center !important;
+    vertical-align: middle !important;
+    background-color: #3368FF;
+    color: #f5a425;
+    }
+
+#datatable_users {
+    background-color: white; /* Establecer el fondo en blanco */
+    border: none; /* Eliminar los bordes de la tabla */
+    margin: 0; /* Eliminar cualquier margen */
+    /* Otros estilos que desees aplicar a la tabla */
+}

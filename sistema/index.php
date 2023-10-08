@@ -34,8 +34,7 @@ if (empty($_SESSION['active'])) {
     <link rel="stylesheet" href="../src/css/owl.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
-    <link rel="stylesheet" href="../css/Styles_inicio.css">
-
+    <link rel="stylesheet" href="../public/css/Styles_inicio.css">
     <link rel="shortcut icon" href="../src/images/cyberhunter_logo.png" />
 </head>
 
@@ -54,7 +53,7 @@ if (empty($_SESSION['active'])) {
                 </li>
 
                 <li>
-                    <form action="close.php" method="post" class="logout d-inline">
+                    <form action="../controllers/close.php" method="post" class="logout d-inline" >
                         <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>
                             Cerrar sesión
                         </button>
@@ -91,6 +90,11 @@ if (empty($_SESSION['active'])) {
                 <div class="left-content">
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
+                    <form action="../controllers/agregar.php" method="post" class="d-inline" >
+                        <button type="submit" class="btn btn-success"><i class="fas fa-sign-out-alt"></i>
+                            Agregar
+                        </button>
+                    </form>
                     <table id="datatable_users" class="table table-striped table-bordered" >
                         <thead>
                             <tr>
@@ -126,8 +130,6 @@ if (empty($_SESSION['active'])) {
     </footer>
 
     <script src="../src/js/jquery/jquery.min.js"></script>
-    <script src="../src/js/bootstrap.bundle.min.js"></script>
-
     <script src="../src/js/isotope.min.js"></script>
     <script src="../src/js/owl-carousel.js"></script>
     <script src="../src/js/lightbox.js"></script>
@@ -147,7 +149,10 @@ if (empty($_SESSION['active'])) {
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
-    <script src="../js/table.js"></script>
+    
+    <script src="../public/js/sweetalert2.all.min.js"></script>
+    <link  rel="shortcut" src="../public/js/sweetalert2.min.css"></link>
+    <script src="../public/js/table.js"></script>
     
 </body>
 

@@ -1,10 +1,10 @@
 <?php
-require 'vendor/autoload.php';
+require '../vendor/autoload.php';
 
 use Google\Cloud\Firestore\FirestoreClient;
 
 
-$archivoCredenciales = 'json/cyber.json';
+$archivoCredenciales = '../public/json/cyber.json';
 $contenidoCredenciales = file_get_contents($archivoCredenciales);
 $credenciales = json_decode($contenidoCredenciales, true);
 

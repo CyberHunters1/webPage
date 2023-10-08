@@ -9,7 +9,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     echo 'Error de inicio de sesión';
   } else {
 
-   require_once 'conexion.php';
+   require_once '../models/conexion.php';
 
     $collection = $firestore->collection('empleados');
     $document = $collection->document($_POST['usuario']);
@@ -34,7 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $_SESSION['active']=true;
         $_SESSION['rol']=$data['rol'];
         
-        header('location: sistema/');
+        header('location: ../sistema/');
         
       }
     }

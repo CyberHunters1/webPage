@@ -1,6 +1,6 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
-require_once "../conexion.php";
+require_once "../models/conexion.php";
 session_start();
 
 if (isset($_GET['accion'])) {
@@ -23,7 +23,7 @@ if (isset($_GET['accion'])) {
                 $content .= '
                 <td>
                     <a href="clientes_alter.php?id=' . $id_usr . '" class="btn btn-success"><i class="fa fa-pencil"></i></a>        
-                    <form method="post" class="confirmar d-inline">
+                    <form action="../controllers/eliminar.php "method="post" class="confirmar d-inline">
                         <input type="hidden" name="id" value="' . $id_usr . '">
                         <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
                     </form>
@@ -32,6 +32,9 @@ if (isset($_GET['accion'])) {
             }
 
             $content .= '</tr>';
+            $content .= '
+            <script type="text/javascript" src="../public/js/ajax.js"></script>';
+            
             $cont++;
         }
 

@@ -1,8 +1,6 @@
 vendor/
 src/
-.vs/
-.vscode/
+public/json/cyber.json
+
 src.rar
-css/
 test.json
-sistema/json

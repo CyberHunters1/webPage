@@ -4,8 +4,8 @@ header('Content-Type: text/html; charset=UTF-8');
 if (isset($_GET['accion'])) {
     $accion = $_GET['accion'];
 
-    if ($accion === 'obtener_empleados') {
-        require "../conexion.php";
+    if ($accion == 'obtener_empleados') {
+        require "../models/conexion.php";
 
         $collection = $firestore->collection('empleados');
         $documents = $collection->documents();

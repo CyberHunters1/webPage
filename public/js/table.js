@@ -1,10 +1,11 @@
 let dat;
 
 
+
 let dataTable;
 let dataTableIsInitialized = false;
 const dataTableOptions={
-    pageLength: 3,
+    pageLength: 5,
     destroy: true,
     language: {
         lengthMenu: "Mostrar _MENU_ registros por página",
@@ -26,15 +27,14 @@ const dataTableOptions={
 };
 
 
-const initDataTable = async (dat) => {
+const initDataTable = (dat) => {
     if (dataTableIsInitialized) {
         dataTable.destroy();
     }
 
     $.ajax({
-        url: '../sistema/table.php',
+        url: '../controllers/table.php',
         method: 'GET',
-        async: true,
         data: {
             accion: 'imp_tabla',
             users: JSON.parse(dat),
@@ -56,7 +56,7 @@ const initDataTable = async (dat) => {
 
 $(document).ready(function() {
     $.ajax({
-        url: '../sistema/get_employees.php',
+        url: '../controllers/get_employees.php',
         method: 'GET',
         data: {
             accion: 'obtener_empleados'
@@ -68,5 +68,42 @@ $(document).ready(function() {
             $('#respuesta').html('Error al obtener empleados.');
         }
     });
-});
+
+    $('.logout').submit( function (e) {
+        
+        e.preventDefault();
+        Swal.fire({
+          title: '¿Estás seguro de que deseas salir?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirmar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.submit();
+          }
+        })
+      }) ;
+
+      $('.confirmar').submit( function (e) {
+        console.log("aaaaaaaaaaaaaaaaaaa");
+        e.preventDefault();
+        Swal.fire({
+          title: '¿Estás seguro de que deseas salir?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirmar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            this.submit();
+          }
+        })
+      }) ;
+
+      
+
+    });
 
