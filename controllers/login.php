@@ -33,6 +33,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         $_SESSION['active']=true;
         $_SESSION['rol']=$data['rol'];
+        $_SESSION['id_usr']= $_POST['usuario'];
         
         header('location: ../sistema/');
         

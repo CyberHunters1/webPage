@@ -1,8 +1,5 @@
 <?php
 session_start();
-/*$_SESSION['active'] = $_COOKIE['active'];
-$_SESSION['rol'] = $_COOKIE['rol'];
-setcookie("active", "", time() - 3600, "/");*/
 
 ini_set('display_errors', 0);
 
