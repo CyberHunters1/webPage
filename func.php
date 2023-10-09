@@ -6,7 +6,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $caracteresEspeciales = array(',', ';', ':', '.', '/', '-', '"', "'", '+', '[', ']', '{', '}', '*');
 
   if (empty($_POST['usuario'] || $_POST['clave'])) {
-    echo 'Error de inicio de sesión';
+    echo '<script>alert("Error de inicio de sesión"); window.location.href = "index.php";</script>';
   } else {
 
     require_once 'conexion.php';
@@ -16,7 +16,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $snapshot = $document->snapshot();
     
     if (!$snapshot->exists()) {
-      echo 'Credenciales incorrectas';
+      echo '<script>alert("Credenciales incorrectas"); window.location.href = "index.php";</script>';
       session_destroy();
     }
     else{
@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       $key = hash('sha256', $key);
 
       if ($data['password'] != $key){
-        echo  'Credenciales incorrectas';
+        echo '<script>alert("Credenciales incorrectas"); window.location.href = "index.php";</script>';
         session_destroy();
       }
       else{
@@ -40,3 +40,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
   }
 }
+?>
+
+
