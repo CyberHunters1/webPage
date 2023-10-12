@@ -11,7 +11,7 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     try {
         $documentReference->delete();
         echo "Documento eliminado exitosamente.";
-        header('location: ../sistema/');
+        //header('location: ../sistema/');
     } catch (e) {
         echo "Error al eliminar el documento: " . $e->getMessage();
     }

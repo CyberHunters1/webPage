@@ -12,7 +12,7 @@ if (isset($_GET['accion'])) {
         $content = '';
 
         foreach ($users as $id_usr => $user) {
-            $content .= '<tr>
+            $content .= '<tr data-id="'.$id_usr.'">
                 <td>' . $cont . '</td>
                 <td>' . $user['rfc'] . '</td>
                 <td>' . $user['nombre'] . '</td>
@@ -23,10 +23,7 @@ if (isset($_GET['accion'])) {
                 $content .= '
                 <td>
                     <a href="clientes_alter.php?id=' . $id_usr . '" class="btn btn-success"><i class="fa fa-pencil"></i></a>        
-                    <form action="../controllers/eliminar.php "method="post" class="confirmar d-inline">
-                        <input type="hidden" name="id" value="' . $id_usr . '">
-                        <button class="btn btn-danger" type="submit"><i class="fa fa-trash"></i></button>
-                    </form>
+                    <button class="eliminar btn btn-danger"><i class="fa fa-trash"></i></button>
                 </td>
                 ';
             }

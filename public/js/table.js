@@ -86,21 +86,25 @@ $(document).ready(function() {
         })
       }) ;
 
-      $('.confirmar').submit( function (e) {
-        console.log("aaaaaaaaaaaaaaaaaaa");
-        e.preventDefault();
-        Swal.fire({
-          title: '¿Estás seguro de que deseas salir?',
-          icon: 'warning',
-          showCancelButton: true,
-          confirmButtonColor: '#3085d6',
-          cancelButtonColor: '#d33',
-          confirmButtonText: 'Confirmar'
-        }).then((result) => {
-          if (result.isConfirmed) {
-            this.submit();
+      $('#datatable_users').on('click', '.eliminar', function() {
+        var fila = $(this).closest('tr');
+        var id = fila.data('id');
+
+        fila.remove();
+
+        $.ajax({
+          url: '../controllers/eliminar.php',
+          method: 'POST',
+          data: {
+              id: id
+          },
+          success: function() {
+            console.log("si se pudo");
+          },
+          error: function() {
+              console.log("no se pudo");
           }
-        })
+      });
       }) ;
 
       
