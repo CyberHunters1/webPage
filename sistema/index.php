@@ -60,25 +60,6 @@ if (empty($_SESSION['active'])) {
         </nav>
     </header>
 
-    <section class="section main-banner" id="top" data-section="section1">
-        <video autoplay muted loop id="bg-video" width="100%">
-            <source src="../src/images/dinoram.mp4" type="video/mp4" />
-        </video>
-
-        <div class="video-overlay header-text">
-            <div class="caption">
-
-                <h2><em>Gestion</em> de Nomina</h2>
-                <br />
-
-                <br />
-                <div class="main-button">
-                    <div class="scroll-to-section">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <section class="section video" data-section="section5">
         <div class="container">
