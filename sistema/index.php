@@ -1,12 +1,9 @@
 <?php
 session_start();
-$_SESSION['active'] = $_COOKIE['active'];
-$_SESSION['rol'] = $_COOKIE['rol'];
-setcookie("active", "", time() - 3600, "/");
-setcookie("rol", "", time() - 3600, "/");
+
 ini_set('display_errors', 0);
 
-require_once "../conexion.php";
+//require_once "../conexion.php";
 
 if (empty($_SESSION['active'])) {
 	header('location: ../');
@@ -34,17 +31,8 @@ if (empty($_SESSION['active'])) {
     <link rel="stylesheet" href="../src/css/owl.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
-    <link rel="stylesheet" href="../css/Styles_inicio.css">
-
+    <link rel="stylesheet" href="../public/css/Styles_inicio.css">
     <link rel="shortcut icon" href="../src/images/cyberhunter_logo.png" />
-    <!-- Font Awesome -->
-    <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
-            integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
-            crossorigin="anonymous"
-            referrerpolicy="no-referrer"
-    />
 </head>
 
 <body>
@@ -62,7 +50,7 @@ if (empty($_SESSION['active'])) {
                 </li>
 
                 <li>
-                    <form action="close.php" method="post" class="logout d-inline">
+                    <form action="../controllers/close.php" method="post" class="logout d-inline" >
                         <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>
                             Cerrar sesión
                         </button>
@@ -72,7 +60,7 @@ if (empty($_SESSION['active'])) {
         </nav>
     </header>
 
-      <!--<section class="section main-banner" id="top" data-section="section1">
+    <section class="section main-banner" id="top" data-section="section1">
         <video autoplay muted loop id="bg-video" width="100%">
             <source src="../src/images/dinoram.mp4" type="video/mp4" />
         </video>
@@ -90,31 +78,35 @@ if (empty($_SESSION['active'])) {
                 </div>
             </div>
         </div>
-    </section> -->
+    </section>
 
     <section class="section video" data-section="section5">
         <div class="container">
 
             <div class="cont_centro">
                 <div class="left-content">
-                    <div .puff-in-center>
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
-                    <table id="datatable_users" class="table">
+                    <form action="../controllers/agregar.php" method="post" class="d-inline" >
+                        <button type="submit" class="btn btn-success"><i class="fas fa-sign-out-alt"></i>
+                            Agregar
+                        </button>
+                    </form>
+                    <table id="datatable_users" class="table table-striped table-bordered" >
                         <thead>
                             <tr>
-                                <th class="centered">#</th>
+                                <th class="centered">Indice</th>
+                                <th class="centered">RFC</th>
                                 <th class="centered">Nombre</th>
-                                <th class="centered">Email</th>
-                                <th class="centered">Direccion</th>
-                                <th class="centered">Compañia</th>
-                                <th class="centered">Estado</th>
-                                <th class="centered">Editar</th>
+                                <th class="centered">Apellido</th>
+                                <th class="centered">Salario</th>
+                                <?php if ($_SESSION['rol'] == 1) { ?>
+                                    <th class="centered">Acciones</th>
+                                <?php } ?>
                             </tr>
                         </thead>
                         <tbody id="tableBody_Users"></tbody>
                     </table>
-                    </div>
                 </div>
             </div>
         </div>
@@ -135,8 +127,6 @@ if (empty($_SESSION['active'])) {
     </footer>
 
     <script src="../src/js/jquery/jquery.min.js"></script>
-    <script src="../src/js/bootstrap.bundle.min.js"></script>
-
     <script src="../src/js/isotope.min.js"></script>
     <script src="../src/js/owl-carousel.js"></script>
     <script src="../src/js/lightbox.js"></script>
@@ -156,7 +146,10 @@ if (empty($_SESSION['active'])) {
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
-    <script src="../js/table.js"></script>
+    
+    <script src="../public/js/sweetalert2.all.min.js"></script>
+    <link  rel="shortcut" src="../public/js/sweetalert2.min.css"></link>
+    <script src="../public/js/table.js"></script>
     
 </body>
 

@@ -15,7 +15,7 @@ if (!empty($_SESSION['active'])) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
-  <link rel="stylesheet" href="./css/Styles.css">
+  <link rel="stylesheet" href="./public/css/Styles.css">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
     rel="stylesheet" />
   <title>CyberHunters</title>
@@ -41,7 +41,7 @@ if (!empty($_SESSION['active'])) {
   <main>
     <div class="Formulario p-4">
       <h1>Inicio de Sesión </h1>
-      <form action="func.php" method="POST">
+      <form action="controllers/login.php" method="POST">
         <div class="Username">
           <input type="text" placeholder="Usuario" name="usuario" id="usuario">
           
@@ -70,6 +70,5 @@ if (!empty($_SESSION['active'])) {
 
 
 </body>
-
 
 </html>
