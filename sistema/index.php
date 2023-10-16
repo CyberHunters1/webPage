@@ -3,8 +3,6 @@ session_start();
 
 ini_set('display_errors', 0);
 
-//require_once "../conexion.php";
-
 if (empty($_SESSION['active'])) {
 	header('location: ../');
 }
