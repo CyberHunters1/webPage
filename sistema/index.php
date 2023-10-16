@@ -32,6 +32,7 @@ if (empty($_SESSION['active'])) {
     <link rel="stylesheet" href="../src/css/lightbox.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
     <link rel="stylesheet" href="../public/css/Styles_inicio.css">
+    <link rel="stylesheet" href="../public/css/estilos_F_Agregar.css">
     <link rel="shortcut icon" href="../src/images/cyberhunter_logo.png" />
 </head>
 
@@ -69,9 +70,13 @@ if (empty($_SESSION['active'])) {
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
                     <form action="../controllers/agregar.php" method="post" class="d-inline" >
-                        <button type="submit" class="btn btn-success"><i class="fas fa-sign-out-alt"></i>
+                        <button id="btn_agregar" type="button" class="btn btn-success"><i class="fas fa-sign-out-alt">
+
+                        </i>
                             Agregar
                         </button>
+                        
+
                     </form>
                     <table id="datatable_users" class="table table-striped table-bordered" >
                         <thead>
@@ -130,7 +135,9 @@ if (empty($_SESSION['active'])) {
     
     <script src="../public/js/sweetalert2.all.min.js"></script>
     <link  rel="shortcut" src="../public/js/sweetalert2.min.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
     <script src="../public/js/table.js"></script>
+    <script src="../public/js/Formulario.js"></script>
     
 </body>
 
