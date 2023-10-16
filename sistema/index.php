@@ -30,7 +30,6 @@ if (empty($_SESSION['active'])) {
     <link rel="stylesheet" href="../src/css/templatemo-grad-school.css" />
     <link rel="stylesheet" href="../src/css/owl.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
-    <link rel="stylesheet" href="../src/css/lightbox.css" />
     <link rel="stylesheet" href="../public/css/Styles_inicio.css">
     <link rel="shortcut icon" href="../src/images/cyberhunter_logo.png" />
 </head>

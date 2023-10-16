@@ -53,8 +53,7 @@ const initDataTable = (dat) => {
 };
 
 
-
-$(document).ready(function() {
+const get_employees = () =>{
     $.ajax({
         url: '../controllers/get_employees.php',
         method: 'GET',
@@ -68,6 +67,12 @@ $(document).ready(function() {
             $('#respuesta').html('Error al obtener empleados.');
         }
     });
+}
+
+
+$(document).ready(function() {
+    
+    get_employees();
 
     $('.logout').submit( function (e) {
         
@@ -86,28 +91,36 @@ $(document).ready(function() {
         })
       }) ;
 
-      $('#datatable_users').on('click', '.eliminar', function() {
+      $('#datatable_users').on('click', '.eliminar', function(e) {
         var fila = $(this).closest('tr');
         var id = fila.data('id');
 
-        fila.remove();
 
-        $.ajax({
-          url: '../controllers/eliminar.php',
-          method: 'POST',
-          data: {
-              id: id
-          },
-          success: function() {
-            console.log("si se pudo");
-          },
-          error: function() {
-              console.log("no se pudo");
+        e.preventDefault();
+        Swal.fire({
+          title: '¿Deseas eliminar este elemento?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirmar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+                url: '../controllers/eliminar.php',
+                method: 'POST',
+                data: {
+                    id: id
+                },
+                success: function() {
+                    get_employees();
+                },
+                error: function() {
+                    console.log("No se eliminó adecuadamente");
+                }
+            });
           }
-      });
+        })
       }) ;
-
-      
-
     });
 
