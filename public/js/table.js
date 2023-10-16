@@ -33,7 +33,7 @@ const initDataTable = (dat) => {
     }
 
     $.ajax({
-        url: '../controllers/table.php',
+        url: '../controllers/get_table.php',
         method: 'GET',
         data: {
             accion: 'imp_tabla',
@@ -107,7 +107,7 @@ $(document).ready(function() {
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-                url: '../controllers/eliminar.php',
+                url: '../controllers/delete_employees.php',
                 method: 'POST',
                 data: {
                     id: id

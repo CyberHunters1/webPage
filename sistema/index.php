@@ -49,7 +49,7 @@ if (empty($_SESSION['active'])) {
                 </li>
 
                 <li>
-                    <form action="../controllers/close.php" method="post" class="logout d-inline" >
+                    <form action="../controllers/close_session.php" method="post" class="logout d-inline" >
                         <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>
                             Cerrar sesión
                         </button>
@@ -86,7 +86,7 @@ if (empty($_SESSION['active'])) {
                 <div class="left-content">
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
-                    <form action="../controllers/agregar.php" method="post" class="d-inline" >
+                    <form action="../controllers/add_employees.php" method="post" class="d-inline" >
                         <button type="submit" class="btn btn-success"><i class="fas fa-sign-out-alt"></i>
                             Agregar
                         </button>
