@@ -47,7 +47,7 @@ if (empty($_SESSION['active'])) {
                 </li>
 
                 <li>
-                    <form action="../controllers/close_session.php" method="post" class="logout d-inline" >
+                    <form action="../controllers/close_session.php" method="post" class="logout d-inline">
                         <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>
                             Cerrar sesión
                         </button>
@@ -84,12 +84,19 @@ if (empty($_SESSION['active'])) {
                 <div class="left-content">
                     <span></span>
                     <h4><em>Tabla de Nomina</em></h4>
-                    <form action="../controllers/add_employees.php" method="post" class="d-inline" >
-                        <button type="submit" class="btn btn-success"><i class="fas fa-sign-out-alt"></i>
+                    <?php 
+                    if($_SESSION['rol']==1){
+                        ?>
+                        <form action="../controllers/add_employees.php" method="post" class="d-inline">
+                        <button id="btn_agregar" type="button" class="btn btn-success"><i class="fas fa-sign-out-alt">
+                            </i>
                             Agregar
                         </button>
-                    </form>
-                    <table id="datatable_users" class="table table-striped table-bordered" >
+                        </form>
+                        <?php 
+                    }
+                    ?>
+                    <table id="datatable_users" class="table table-striped table-bordered">
                         <thead>
                             <tr>
                                 <th class="centered">Indice</th>
@@ -98,7 +105,7 @@ if (empty($_SESSION['active'])) {
                                 <th class="centered">Apellido</th>
                                 <th class="centered">Salario</th>
                                 <?php if ($_SESSION['rol'] == 1) { ?>
-                                    <th class="centered">Acciones</th>
+                                <th class="centered">Acciones</th>
                                 <?php } ?>
                             </tr>
                         </thead>
@@ -143,11 +150,14 @@ if (empty($_SESSION['active'])) {
     <script src="https://cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
     <script src="https://cdn.datatables.net/1.12.1/js/dataTables.bootstrap5.min.js"></script>
 
-    
+
     <script src="../public/js/sweetalert2.all.min.js"></script>
-    <link  rel="shortcut" src="../public/js/sweetalert2.min.css"></link>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <link rel="shortcut" src="../public/js/sweetalert2.min.css">
+    </link>
     <script src="../public/js/table.js"></script>
-    
+    <script src="../public/js/formulario.js"></script>
+
 </body>
 
 </html>

@@ -12,7 +12,7 @@ if (isset($_GET['accion'])) {
         $content = '';
 
         foreach ($users as $id_usr => $user) {
-            $content .= '<tr data-id="'.$id_usr.'">
+            $content .= '<tr data-id="'.base64_encode($id_usr).'">
                 <td>' . $cont . '</td>
                 <td>' . $user['rfc'] . '</td>
                 <td>' . $user['nombre'] . '</td>
@@ -22,7 +22,7 @@ if (isset($_GET['accion'])) {
             if ($_SESSION['rol'] == 1) {
                 $content .= '
                 <td>
-                    <a href="clientes_alter.php?id=' . $id_usr . '" class="btn btn-success"><i class="fa fa-pencil"></i></a>        
+                    <a href="clientes_alter.php?id=' . base64_encode($id_usr). '" class="btn btn-success"><i class="fa fa-pencil"></i></a>        
                     <button class="eliminar btn btn-danger"><i class="fa fa-trash"></i></button>
                 </td>
                 ';
