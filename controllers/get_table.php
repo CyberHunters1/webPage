@@ -22,7 +22,7 @@ if (isset($_GET['accion'])) {
             if ($_SESSION['rol'] == 1) {
                 $content .= '
                 <td>
-                    <a href="clientes_alter.php?id=' . base64_encode($id_usr). '" class="btn btn-success"><i class="fa fa-pencil"></i></a>        
+                    <button class="editar btn btn-success"><i class="fa fa-pencil"></i></button>        
                     <button class="eliminar btn btn-danger"><i class="fa fa-trash"></i></button>
                 </td>
                 ';

@@ -122,5 +122,42 @@ $(document).ready(function() {
           }
         })
       }) ;
+
+
+
+      $('#datatable_users').on('click', '.editar', function(e) {
+        var fila = $(this).closest('tr');
+        var id = fila.data('id');
+
+
+        e.preventDefault();
+        Swal.fire({
+          title: '¿Deseas editar el sueldo de este elemento?',
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Confirmar'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            $.ajax({
+                url: '../controllers/alter_employees.php',
+                method: 'POST',
+                data: {
+                    id: id
+                },
+                success: function(data) {
+                    console.log(data);
+                    get_employees();
+                    
+                },
+                error: function(data) {
+                    console.log(data);
+                }
+            });
+          }
+        })
+      }) ;
+
     });
 
