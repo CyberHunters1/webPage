@@ -3,7 +3,6 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     require_once '../models/conexion.php';
-    //david123
     $ap=$_POST['ap_p'];
     $am=$_POST['ap_m'];
     $nom=$_POST['nombre'];
