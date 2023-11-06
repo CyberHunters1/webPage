@@ -1,17 +1,24 @@
 document.getElementById('btn_agregar').addEventListener('click', function() {
     Swal.fire({
+      
       title: 'Ingresa los Datos Correspondientes',
       html: `
-        <h4><em>Favor llenar los datos requeridos para agregar un nuevo usuario.</em></h4>
-        <form id="Formulario_Agregar">
-        <div class="Datos"><input type="text" placeholder="Nombre" id="nombre" required></div>
-        <div class="Datos"><input type="text" placeholder="Apellido Paterno" id="apellido_P" required></div>
-        <div class="Datos"><input type="text" placeholder="Apellido Materno" id="apellido_M" required></div>
-        <div class="Datos"><input type="text" placeholder="Contraseña" id="password" required></div>
-        <div class="Datos"><input type="text" placeholder="RFC" id="rfc" required></div>
-        <div class="Datos"><input type="number" placeholder="Rol" id="rol" required></div>
-        <div class="Datos"><input type="number" placeholder="Salario" id="salario" required></div>
-        </form>
+      <head>
+        <link rel="stylesheet" href="../css/estilos_F_Agregar.css">
+      </head>
+      <h4><em>Agregue los nuevos datos del usuario.</em></h4>
+            <form id="Formulario_Agregar">
+            <div class="Cont1">
+              <div class="Datos"><input type="text" placeholder="Nombre" id="nombre" required></div>
+              <div class="Datos"><input type="text" placeholder="Apellido Paterno" id="apellido_P" required></div>
+            </div>
+
+            <div class="Datos"><input type="text" placeholder="Apellido Materno" id="apellido_M" required></div>
+            <div class="Datos"><input type="text" placeholder="Contraseña" id="password" required></div>
+            <div class="Datos"><input type="text" placeholder="RFC" id="rfc" required></div>
+            <div class="Datos"><input type="number" placeholder="Rol" id="rol" required></div>
+            <div class="Datos"><input type="number" placeholder="Salario" id="salario" required></div>
+            </form>
       `,
       width: '60%',
       background:'#FFFFFF',

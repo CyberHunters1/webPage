@@ -5,7 +5,7 @@ let dat;
 let dataTable;
 let dataTableIsInitialized = false;
 const dataTableOptions={
-    pageLength: 5,
+    pageLength: 10,
     destroy: true,
     language: {
         lengthMenu: "Mostrar _MENU_ registros por página",

@@ -25,13 +25,13 @@ if (isset($_GET['accion'])) {
                 else{
                     $salario= 'Privado';
                 }
-
+                $salarioFormateado = number_format($salario, 2, '.', ',');
                 $empleado = array(
                     'rfc' => $dato['rfc'],
                     'nombre' => mb_convert_encoding($dato['nombre'], "UTF-8", mb_detect_encoding($dato['nombre'])),
                     'ap_p' => mb_convert_encoding($dato['ap_p'], "UTF-8", mb_detect_encoding($dato['ap_p'])),
                     'ap_m' => mb_convert_encoding($dato['ap_m'], "UTF-8", mb_detect_encoding($dato['ap_m'])),
-                    'salario' => $salario
+                    'salario' => $salarioFormateado
                 );
                 $empleados[$id_doc] = $empleado;
             }
