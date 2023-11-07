@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (!empty($_SESSION['active'])) {
-    header('location: sistema/');
-  }
+  header('location: sistema/');
+}
 
 ?>
 
@@ -26,14 +26,14 @@ if (!empty($_SESSION['active'])) {
   <link rel="stylesheet" href="src/css/templatemo-grad-school.css" />
   <link rel="stylesheet" href="src/css/owl.css" />
   <link rel="stylesheet" href="src/css/lightbox.css" />
-  
+
   <link rel="stylesheet" href="@sweetalert2/theme-borderless/borderless.css">
   <link rel="shortcut icon" href="src/images/cyberhunter_logo.png" />
 
 </head>
 
 <body>
-<svg xmlns="http://www.w3.org/2000/svg" width="270.11" height="649.9" overflow="visible">
+  <!-- <svg xmlns="http://www.w3.org/2000/svg" width="270.11" height="649.9" overflow="visible">
   <style>
     .geo-arrow {
       fill: none;
@@ -75,50 +75,73 @@ if (!empty($_SESSION['active'])) {
 <svg xmlns="http://www.w3.org/2000/svg" class="dotted-circle" width="352" height="352" overflow="visible">
   <circle cx="176" cy="176" r="174" fill="none" stroke="#fff" stroke-width="2" stroke-miterlimit="10" stroke-dasharray="12.921,11.9271"/>
 </svg>
-
+ -->
+  <!-- </div>
   </div>
-  </div>
+   -->
   <header class="main-header clearfix" role="header">
     <div class="logo">
       <a href="#">
-    
-      <em>Cyber</em>Hunt<em>ers</em></a>
+
+        <em>Cyber</em>Hunt<em>ers</em></a>
     </div>
   </header>
-  <main>
-      <div class="Formulario p-4">
-        <h2>Inicio de Sesion </h2>
-        <form action="controllers/login.php" method="POST">
-          <div class="Username">
-            <input type="text" placeholder="Usuario" name="usuario" id="usuario">
-            
-          </div>
-          <div class="Username">
-            <input type="password" placeholder="Contraseña" name="clave" id="clave">
 
-          </div>
-          <button class="B_Iniciar"  value="Iniciar" > Iniciar</button>
-        
+  <section class="vh-100 gradient-custom" style="margin-top:30px">
+    <form action="controllers/login.php" method="POST">
+    <div class="container py-5 h-100">
+      <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="col-12 col-md-8 col-lg-6 col-xl-5">
+          <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-5 text-center">
 
-        </form>
+              <div class="mb-md-5 mt-md-4 pb-5">
+
+                <h2 class="fw-bold mb-2 text-uppercase">Iniciar sesión</h2>
+                <p class="text-white-50 mb-5">por favor ingrese su usuario y contraseña</p>
+
+
+                  <div class="form-outline form-white mb-4">
+                    <input type="email" class="form-control form-control-lg" name="usuario" id="usuario"/>
+                    <label class="form-label" for="typeEmailX">Email</label>
+                  </div>
+
+                  <div class="form-outline form-white mb-4">
+                    <input type="password" class="form-control form-control-lg" name="clave" id="clave"/>
+                    <label class="form-label" for="typePasswordX">contraseña</label>
+                  </div>
+
+
+                  <button class="btn btn-outline-light btn-lg px-5 B_Iniciar"  value="Iniciar" >continuar</button>
+                </form>
+              </div>
+
+              <div>
+
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
-  </main>
+    </div>
+  </section>
 
   <footer>
-    <div class="pie-de-pagina">
-      <div class="col-md-12">
-        <p>
-          <i class="fa fa-copyright"></i> Copyright 2023 by Cyberhunters |
-          Diseño:
-          <a href="https://templatemo.com" rel="sponsored" target="_parent">Cyberhunters</a>
-        </p>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <p>
+            <i class="fa fa-copyright"></i> Copyright 2023 by Cyberhunters |
+            Diseño:
+            <a href="https://templatemo.com" rel="sponsored" target="_parent">Cyberhunters</a>
+          </p>
+        </div>
       </div>
     </div>
-    </div>
   </footer>
-  
+
 
 </body>
 
 </html>
-

@@ -1,11 +1,12 @@
 $(".nav li:first").addClass("active");
 
 var showSection = function showSection(section, isAnimate) {
+    console.log("jdoer!");
     var direction = section.replace(/#/, ""),
         reqSection = $(".section").filter(
             '[data-section="' + direction + '"]'
         ),
-        reqSectionPos = reqSection.offset().top - 0;
+        reqSectionPos = reqSection !== null ? reqSection.offset().top - 0:'';
 
     if (isAnimate) {
         $("body, html").animate(
