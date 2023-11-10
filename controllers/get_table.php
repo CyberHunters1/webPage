@@ -17,6 +17,7 @@ if (isset($_GET['accion'])) {
                 <td>' . $user['rfc'] . '</td>
                 <td>' . $user['nombre'] . '</td>
                 <td>' . $user['ap_p'] . '</td>
+                <td>' . $user['ap_m'] . '</td>
                 <td>' . $user['salario'] . '</td>';
 
             if ($_SESSION['rol'] == 1) {

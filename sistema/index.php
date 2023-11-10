@@ -44,9 +44,6 @@ if (empty($_SESSION['active'])) {
         </div>
 
         <nav id="menu" class="main-nav" role="navigation">
-            <div class="d-flex d-sm-none justify-content-center" >
-                <img class="menu-toggle rounded" src="../src/images/icon-toogler.jpg" alt="toogler" style="width:50px" >
-            </div>
             <ul class="main-menu">
                 <li>
                     <a href="nominas.html">Nominas</a>
@@ -93,7 +90,8 @@ if (empty($_SESSION['active'])) {
                                         <th class="centered">Indice</th>
                                         <th class="centered">RFC</th>
                                         <th class="centered">Nombre</th>
-                                        <th class="centered">Apellido</th>
+                                        <th class="centered">Apellido Pat.</th>
+                                        <th class="centered">Apellido Mat.</th>
                                         <th class="centered">Salario</th>
                                         <?php if ($_SESSION['rol'] == 1) { ?>
                                             <th class="centered">Acciones</th>

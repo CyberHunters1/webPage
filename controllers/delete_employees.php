@@ -1,7 +1,6 @@
 <?php
 session_start();
 
-
 if($_SERVER['REQUEST_METHOD']=='POST'){
     require_once '../models/conexion.php';
     $id=base64_decode($_POST['token']);
@@ -10,10 +9,9 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
     try {
         $documentReference->delete();
         echo "Documento eliminado exitosamente.";
-    } catch (e) {
+    } catch (Exception $e) {
         echo "Error al eliminar el documento: " . $e->getMessage();
     }
-
 }
 
 ?>

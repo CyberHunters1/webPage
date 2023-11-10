@@ -1,4 +1,7 @@
 document.getElementById('btn_agregar').addEventListener('click', function() {
+
+
+    var simbolo='error';
     Swal.fire({
       
       title: 'Ingresa los Datos Correspondientes',
@@ -82,10 +85,15 @@ document.getElementById('btn_agregar').addEventListener('click', function() {
                     rol:rol,
                     salario:salario
                 },
-                success: function() {
+                success: function(data) {
+
+                  if(data==0){
+                    resolve("RFC no válido.");
+                  }else{
+                  simbolo='success';
                   get_employees();
-                  resolve(mensaje);
-      
+                  resolve("Usuario agregado exitosamente.");
+                }
                 },
                 error: function() {
                     $('#respuesta').html('Error al obtener empleados.');
@@ -99,10 +107,10 @@ document.getElementById('btn_agregar').addEventListener('click', function() {
       allowOutsideClick: () => !Swal.isLoading(),
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Datos enviados',
-          result.value, // Muestra los datos del formulario en el mensaje
-          'success'
+        Swal.fire({
+          title:'Mensaje Importante',
+          text:result.value, // Muestra los datos del formulario en el mensaje
+          icon:simbolo}
         );
       }
     });

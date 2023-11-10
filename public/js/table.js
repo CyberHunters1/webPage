@@ -1,9 +1,7 @@
 let dat;
-
-
-
 let dataTable;
 let dataTableIsInitialized = false;
+
 const dataTableOptions = {
   responsive: true,
   pageLength: 10,
@@ -23,10 +21,7 @@ const dataTableOptions = {
       previous: "Anterior"
     }
   }
-
-
 };
-
 
 const initDataTable = (dat) => {
   if (dataTableIsInitialized) {
@@ -136,16 +131,24 @@ function renderTable() {
 
 
   $('#datatable_users').on('click', '.editar', function (e) {
+
+    var simbolo = 'error';
+    var fila = $(this).closest('tr');
+    var valoresTd = fila.find('td').map(function() {
+        return $(this).text();
+    }).get(); 
+
+
     Swal.fire({
       title: 'Ingresa los Datos Correspondientes',
       html: `
               <h4 class="text-uppercase"><em>Agregue los nuevos datos del usuario.</em></h4>
               <form id="Formulario_Agregar">
-              <div class="Datos"><input type="text" placeholder="Nombre" id="nombre" required></div>
-              <div class="Datos"><input type="text" placeholder="Apellido Paterno" id="apellido_P" required></div>
-              <div class="Datos"><input type="text" placeholder="Apellido Materno" id="apellido_M" required></div>
+              <div class="Datos"><input type="text" value="${valoresTd[2]}" placeholder="Nombre" id="nombre" required></div>
+              <div class="Datos"><input type="text" value="${valoresTd[3]}"placeholder="Apellido Paterno" id="apellido_P" required></div>
+              <div class="Datos"><input type="text" value="${valoresTd[4]}"placeholder="Apellido Materno" id="apellido_M" required></div>
               <div class="Datos"><input type="text" placeholder="Contraseña" id="password" required></div>
-              <div class="Datos"><input type="text" placeholder="RFC" id="rfc" required></div>
+              <div class="Datos"><input type="text" value="${valoresTd[1]}"placeholder="RFC" id="rfc" required></div>
               <div class="Datos"><input type="number" placeholder="Rol" id="rol" required></div>
               <div class="Datos"><input type="number" placeholder="Salario" id="salario" required></div>
               </form>
@@ -168,7 +171,7 @@ function renderTable() {
         const rfc = document.getElementById('rfc').value;
         const rol = document.getElementById('rol').value;
         const salario = document.getElementById('salario').value;
-
+        
         if (
           !nombre ||
           !apellido_P ||
@@ -185,7 +188,7 @@ function renderTable() {
             setTimeout(() => {
               var fila = $(this).closest('tr');
               var token = fila.data('id');
-              const mensaje = `Nombre: ${nombre}, Apellido Paterno: ${apellido_P}, Apellido Materno: ${apellido_M} ,Contraseña: ${password}, RFC: ${rfc}, Rol: ${rol}, Salario: ${salario}`;
+              const mensaje = `Usuario agregado correctamente.`;
               $.ajax({
                 url: '../controllers/alter_employees.php',
                 method: 'POST',
@@ -199,9 +202,14 @@ function renderTable() {
                   salario: salario,
                   token: token
                 },
-                success: function () {
+                success: function (data) {
+                  console.log(data);
+                  if(data==0){
+                    resolve("RFC NO VALIDO");
+                  }else{
+                    simbolo='success'
                   get_employees();
-                  resolve(mensaje);
+                  resolve(mensaje);}
                 },
                 error: function () {
                   $('#respuesta').html('Error al obtener empleados.');
@@ -214,11 +222,12 @@ function renderTable() {
       allowOutsideClick: () => !Swal.isLoading(),
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Datos enviados',
-          result.value,
-          'success'
-        );
+        console.log(simbolo);
+        Swal.fire({
+          title:'Mensaje Importante',
+          text:result.value,
+          icon: simbolo
+      });
       }
     });
   });

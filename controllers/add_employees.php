@@ -3,19 +3,31 @@ session_start();
 
 if($_SERVER['REQUEST_METHOD']=='POST'){
     require_once '../models/conexion.php';
+
+    $rfc=$_POST['rfc'];
+
+    $regexFisica = '/^[A-Z&Ñ]{4}\d{6}[A-Z0-9]{3}$/i';
+    
+    $rfc = strtoupper(str_replace(' ', '', $rfc));
+     
+     // Validar formato
+     if (!(preg_match($regexFisica, $rfc))) {
+        echo 0;
+        
+    } else{
+
     $ap=$_POST['ap_p'];
     $am=$_POST['ap_m'];
     $nom=$_POST['nombre'];
-    $rol=$_POST['rol'];
-    $rfc=$_POST['rfc'];
+    $rol=$_POST['rol']; 
     $salario=$_POST['salario'];
     $pass = hash('sha256', $_POST['password']);
 
 
     $customDocumentId =  strtolower($nom).'.'.strtolower($ap).'@example.com';
     $documentData = [
-        'ap_m' => $ap,
-        'ap_p' => $am,
+        'ap_p' => $ap,
+        'ap_m' => $am,
         'nombre' => $nom,
         'password' => $pass,
         'rfc' => $rfc,
@@ -28,5 +40,5 @@ if($_SERVER['REQUEST_METHOD']=='POST'){
 
     header('location: ../sistema/');
 }
-
+}
 ?>
