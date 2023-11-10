@@ -91,11 +91,11 @@ $(document).ready(function() {
         })
       }) ;
 
-      $('#datatable_users').on('click', '.eliminar', function(e) {
+      $('#datatable_users').on('click', '.eliminar', function (e) {
         var fila = $(this).closest('tr');
         var token = fila.data('id');
-
-
+    
+    
         e.preventDefault();
         Swal.fire({
           title: '¿Deseas eliminar este elemento?',
@@ -107,23 +107,21 @@ $(document).ready(function() {
         }).then((result) => {
           if (result.isConfirmed) {
             $.ajax({
-                url: '../controllers/delete_employees.php',
-                method: 'POST',
-                data: {
-                    token: token
-                },
-                success: function() {
-                    get_employees();
-                },
-                error: function() {
-                    console.log("No se eliminó adecuadamente");
-                }
+              url: '../controllers/delete_employees.php',
+              method: 'POST',
+              data: {
+                token: token
+              },
+              success: function () {
+                get_employees();
+              },
+              error: function () {
+                console.log("No se eliminó adecuadamente");
+              }
             });
           }
         })
-      }) ;
-
-
+      });
 
       $('#datatable_users').on('click', '.editar', function(e) {
         Swal.fire({
