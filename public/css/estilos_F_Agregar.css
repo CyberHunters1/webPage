@@ -1,0 +1,96 @@
+
+.Agregar {
+    background-color: greenyellow;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .titulo {
+    color: #D3BA00; 
+  }
+
+  form .Datos{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.Formulario_Datos{
+    position:absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width:  400px;
+    background: white;
+    /*  #FAEBBA */
+    
+    border-radius: 50px; 
+}
+.Contenedor1 {
+    display: flex; /* Establece el contenedor como un flex container */
+    gap: 10px; /* Agrega espacio entre los campos de entrada */
+    border-radius: 50px; 
+    background: blueviolet;
+}
+.Formulario_Datos h1{
+    text-align: center;
+    padding: 0 0 20px 0;
+    border-bottom: 1px solid silver;
+
+}
+.Formulario_Agregar form{
+    padding: 0 40px;
+    box-sizing: border-box;
+}
+form .Datos{
+    position: relative;
+    border-bottom: 2px solid #adadad;
+    margin: 30px 0;
+}
+
+.Datos input{
+    width: 100%;
+    padding: 0 5px;
+    height:40px;
+    font-size: 16 px;
+    border: none;
+    background: none;
+    outline: none;
+    color: #000D42
+}
+
+.Datos label{
+    position:absolute;
+    top:50%;
+    left: 5%;
+    color: #adadad;
+    transform: translateY(-50%);
+    font-size: 16px;
+    pointer-events:none;
+    transition: .5s;
+    
+}
+.Datos span::before{
+    content:' ';
+    position: absolute;
+    top:40px;
+    left:0;
+    width:100%;
+    height: 2px;
+    background: #6C3483;
+    transition: .5s;
+
+}
+
+.Datos input:focus~label,
+.Datos input:focus~label{
+    top:-5px;
+    color: #6C3483;
+}
+
+.Datos input:focus~span::before,
+.Datos input:focus~span::before{
+    width:100%;
+}

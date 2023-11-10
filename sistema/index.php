@@ -20,7 +20,7 @@ if (empty($_SESSION['active'])) {
     <meta name="author" content="" />
     <link href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900"
         rel="stylesheet" />
-    <title>CyberHunters</title>
+    <title>Nomina CyberHunters</title>
     <!-- Bootstrap core CSS -->
     <link href="../src/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Additional CSS Files -->
@@ -34,8 +34,11 @@ if (empty($_SESSION['active'])) {
 
 <body>
     <header class="main-header clearfix" role="header">
+        
         <div class="logo">
-            <a href="#"><em>Cyber</em>Hunt<em>ers</em></a>
+            <a href="#">
+            
+            <em>Cyber</em>Hunt<em>ers</em></a>
         </div>
 
         <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
@@ -43,7 +46,7 @@ if (empty($_SESSION['active'])) {
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
                 <li>
-                    <a href="#section1">Inicio</a>
+                    <a href="#section1">Acerca de Nosotros</a>
                 </li>
 
                 <li>
@@ -57,25 +60,7 @@ if (empty($_SESSION['active'])) {
         </nav>
     </header>
 
-    <section class="section main-banner" id="top" data-section="section1">
-        <video autoplay muted loop id="bg-video" width="100%">
-            <source src="../src/images/dinoram.mp4" type="video/mp4" />
-        </video>
-
-        <div class="video-overlay header-text">
-            <div class="caption">
-
-                <h2><em>Gestion</em> de Nomina</h2>
-                <br />
-
-                <br />
-                <div class="main-button">
-                    <div class="scroll-to-section">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+   
 
     <section class="section video" data-section="section5">
         <div class="container">
@@ -112,6 +97,7 @@ if (empty($_SESSION['active'])) {
                         <tbody id="tableBody_Users"></tbody>
                     </table>
                 </div>
+
             </div>
         </div>
     </section>
@@ -157,7 +143,7 @@ if (empty($_SESSION['active'])) {
     </link>
     <script src="../public/js/table.js"></script>
     <script src="../public/js/formulario.js"></script>
-
+                                    
 </body>
 
 </html>
