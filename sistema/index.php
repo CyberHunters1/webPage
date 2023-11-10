@@ -4,7 +4,7 @@ session_start();
 ini_set('display_errors', 0);
 
 if (empty($_SESSION['active'])) {
-	header('location: ../');
+    header('location: ../');
 }
 
 ?>
@@ -22,37 +22,39 @@ if (empty($_SESSION['active'])) {
         rel="stylesheet" />
     <title>Nomina CyberHunters</title>
     <!-- Bootstrap core CSS -->
-    <link href="../src/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <!-- Additional CSS Files -->
     <link rel="stylesheet" href="../src/css/fontawesome.css" />
     <link rel="stylesheet" href="../src/css/templatemo-grad-school.css" />
     <link rel="stylesheet" href="../src/css/owl.css" />
     <link rel="stylesheet" href="../src/css/lightbox.css" />
     <link rel="stylesheet" href="../public/css/Styles_inicio.css">
+    <link rel="stylesheet" href="../public/css/globalStyles.css">
     <link rel="shortcut icon" href="../src/images/cyberhunter_logo.png" />
 </head>
 
 <body>
     <header class="main-header clearfix" role="header">
-        
+
         <div class="logo">
             <a href="#">
-            
-            <em>Cyber</em>Hunt<em>ers</em></a>
-        </div>
 
-        <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
+                <em>Cyber</em>Hunt<em>ers</em></a>
+        </div>
 
         <nav id="menu" class="main-nav" role="navigation">
             <ul class="main-menu">
                 <li>
-                    <a href="#section1">Acerca de Nosotros</a>
+                    <a href="nominas.html">Nominas</a>
                 </li>
-
                 <li>
+                    <a href="nosotros.html">Acerca de Nosotros</a>
+                </li>
+                <li class="justify-content-center padd-top-btm-10 d-sm-inline-block d-flex">
                     <form action="../controllers/close_session.php" method="post" class="logout d-inline">
-                        <button type="submit" class="btn btn-danger"><i class="fas fa-sign-out-alt"></i>
-                            Cerrar sesión
+                        <button type="submit" class="btn btn-danger">
+                            <i class="fas fa-sign-out-alt"></i> Cerrar sesión
                         </button>
                     </form>
                 </li>
@@ -60,47 +62,55 @@ if (empty($_SESSION['active'])) {
         </nav>
     </header>
 
-   
+    <div id="contenido-dinamico">
+        <section class="section video" data-section="section5">
+            <div class="container">
 
-    <section class="section video" data-section="section5">
-        <div class="container">
-
-            <div class="cont_centro">
-                <div class="left-content">
-                    <span></span>
-                    <h4><em>Tabla de Nomina</em></h4>
-                    <?php 
-                    if($_SESSION['rol']==1){
+                <div class="cont_centro">
+                    <div class="left-content">
+                        <span></span>
+                        <h4><em>Tabla de Nomina</em></h4>
+                        <?php
+                        if ($_SESSION['rol'] == 1) {
+                            ?>
+                            <form action="../controllers/add_employees.php" method="post" class="d-inline">
+                                <button id="btn_agregar" type="button" class="btn btn-success"><i
+                                        class="fas fa-sign-out-alt">
+                                    </i>
+                                    Agregar
+                                </button>
+                            </form>
+                            <?php
+                        }
                         ?>
-                        <form action="../controllers/add_employees.php" method="post" class="d-inline">
-                        <button id="btn_agregar" type="button" class="btn btn-success"><i class="fas fa-sign-out-alt">
-                            </i>
-                            Agregar
-                        </button>
-                        </form>
-                        <?php 
-                    }
-                    ?>
-                    <table id="datatable_users" class="table table-striped table-bordered">
-                        <thead>
-                            <tr>
-                                <th class="centered">Indice</th>
-                                <th class="centered">RFC</th>
-                                <th class="centered">Nombre</th>
-                                <th class="centered">Apellido</th>
-                                <th class="centered">Salario</th>
-                                <?php if ($_SESSION['rol'] == 1) { ?>
-                                <th class="centered">Acciones</th>
-                                <?php } ?>
-                            </tr>
-                        </thead>
-                        <tbody id="tableBody_Users"></tbody>
-                    </table>
-                </div>
+                        <div class="table-responsive">
+                            <table id="datatable_users" class="table table-striped table-bordered ">
+                                <thead>
+                                    <tr>
+                                        <th class="centered">Indice</th>
+                                        <th class="centered">RFC</th>
+                                        <th class="centered">Nombre</th>
+                                        <th class="centered">Apellido Pat.</th>
+                                        <th class="centered">Apellido Mat.</th>
+                                        <th class="centered">Salario</th>
+                                        <?php if ($_SESSION['rol'] == 1) { ?>
+                                            <th class="centered">Acciones</th>
+                                        <?php } ?>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableBody_Users"></tbody>
+                            </table>
+                        </div>
+                    </div>
 
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+
+
+
+    </div>
 
     <footer>
         <div class="container">
@@ -123,13 +133,13 @@ if (empty($_SESSION['active'])) {
     <script src="../src/js/tabs.js"></script>
     <script src="../src/js/video.js"></script>
     <script src="../src/js/slick-slider.js"></script>
-    <!--<script src="../src/js/custom.js"></script>  Esta cosa genera un error en bucle-->
-    <script src="../src/js/main.js"></script>
+    <script src="../public/js/dinamicPage.js"></script>
+
 
     <!-- Bootstrap-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous">
-    </script>
+        </script>
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <!-- DataTable -->
@@ -143,7 +153,7 @@ if (empty($_SESSION['active'])) {
     </link>
     <script src="../public/js/table.js"></script>
     <script src="../public/js/formulario.js"></script>
-                                    
+
 </body>
 
 </html>

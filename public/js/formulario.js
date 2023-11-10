@@ -1,26 +1,44 @@
 document.getElementById('btn_agregar').addEventListener('click', function() {
+
+
+    var simbolo='error';
     Swal.fire({
       
       title: 'Ingresa los Datos Correspondientes',
       html: `
-      <head>
-        <link rel="stylesheet" href="../css/estilos_F_Agregar.css">
-      </head>
+
       <h4><em>Agregue los nuevos datos del usuario.</em></h4>
             <form id="Formulario_Agregar">
-            <div class="Cont1">
-              <div class="Datos"><input type="text" placeholder="Nombre" id="nombre" required></div>
-              <div class="Datos"><input type="text" placeholder="Apellido Paterno" id="apellido_P" required></div>
-            </div>
+            <div class="row">
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" placeholder="Nombre" id="nombre" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" placeholder="Apellido Paterno" id="apellido_P" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" placeholder="Apellido Materno" id="apellido_M" required></div>
+              </div>
+              <div class="w-100 d-none d-md-block"></div>
 
-            <div class="Datos"><input type="text" placeholder="Apellido Materno" id="apellido_M" required></div>
-            <div class="Datos"><input type="text" placeholder="Contraseña" id="password" required></div>
-            <div class="Datos"><input type="text" placeholder="RFC" id="rfc" required></div>
-            <div class="Datos"><input type="number" placeholder="Rol" id="rol" required></div>
-            <div class="Datos"><input type="number" placeholder="Salario" id="salario" required></div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" placeholder="Contraseña" id="password" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" placeholder="RFC" id="rfc" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="number" placeholder="Rol" id="rol" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="number" placeholder="Salario" id="salario" required></div>
+              </div>
+
+            </div>
+            
             </form>
       `,
-      width: '60%',
+      
       background:'#FFFFFF',
       showCancelButton: true,
       confirmButtonText: 'Agregar',
@@ -67,10 +85,15 @@ document.getElementById('btn_agregar').addEventListener('click', function() {
                     rol:rol,
                     salario:salario
                 },
-                success: function() {
+                success: function(data) {
+
+                  if(data==0){
+                    resolve("RFC no válido.");
+                  }else{
+                  simbolo='success';
                   get_employees();
-                  resolve(mensaje);
-      
+                  resolve("Usuario agregado exitosamente.");
+                }
                 },
                 error: function() {
                     $('#respuesta').html('Error al obtener empleados.');
@@ -84,10 +107,10 @@ document.getElementById('btn_agregar').addEventListener('click', function() {
       allowOutsideClick: () => !Swal.isLoading(),
     }).then((result) => {
       if (result.isConfirmed) {
-        Swal.fire(
-          'Datos enviados',
-          result.value, // Muestra los datos del formulario en el mensaje
-          'success'
+        Swal.fire({
+          title:'Mensaje Importante',
+          text:result.value, // Muestra los datos del formulario en el mensaje
+          icon:simbolo}
         );
       }
     });
