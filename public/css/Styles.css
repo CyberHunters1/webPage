@@ -148,27 +148,52 @@ input[type="submit"]:hover{
     margin-right: 10px; /* Espacio entre la imagen y el texto */
 }
 
+
+
 button {
     color: white;
     width: 270px;
     height: 50px;
-    border:none;
     border-radius: 50px; 
     font-size: 35px;
     padding: 10px;
     margin: 20px;
-    background: rgba(22, 34, 57, 0.95);
+    background: rgba(37, 86, 177, 0.95);
     transition-property: background;
     transition-duration: 0.4s;
     transition-timing-function: linear;
    
 }
 
-  button:hover {
-    background: goldenrod;
-    border-radius: 50px; 
+
+button.Ocultar {
+  color: white;
+  width: 40px;
+  height: 50px;
+
+  border-radius: 10px; 
+  font-size: 35px;
+  padding: 10px;
+  margin: 5px;
+  background: rgba(37, 86, 177, 0.95);
+  transition-property: background;
+  transition-duration: 0.4s;
+  transition-timing-function: linear;
+  border: none; 
+ 
+
+}
+
+
+
+button.Ocultar:hover {
+    color: rgba(37, 86, 177, 0.95);
+    background: white;
+    border-radius: 10px; 
+    border: none;
   }
-  .B_Iniciar:hover {
+
+.B_Iniciar:hover {
     animation-name: bounce;
     animation-duration: 0.4s;
     
@@ -179,6 +204,14 @@ button {
     animation-fill-mode: forwards;
     animation-play-state: running;
   }
+
+
+  /*.Ocultar{
+    border-radius: 50px; 
+    background: white;
+
+  }*/
+  
   
   @keyframes bounce {
     0%,

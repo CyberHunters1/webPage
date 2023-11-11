@@ -60,13 +60,16 @@ if (!empty($_SESSION['active'])) {
                     <label class="form-label" for="typeEmailX">Email</label>
                   </div>
 
-                  <div class="form-outline form-white mb-4">
-                    <input type="password" class="form-control form-control-lg" name="clave" id="clave"/>
-                    <label class="form-label" for="typePasswordX">contraseña</label>
+                  <div class="form-outline form-white mb-4" style="display: flex; align-items: center;">
+                    <input type="password" class="form-control form-control-lg" name="clave" id="clave" />
+                    
+                    <button id="show_password" class="Ocultar" type="button" onclick="mostrarPassword()" style="display: flex; align-items: center;">
+                      <span class="fa fa-eye-slash icon" style="font-size: 0.5em;"></span>
+                    
                   </div>
-
-
-                  <button class="btn btn-outline-light btn-lg px-5 B_Iniciar"  value="Iniciar" >continuar</button>
+                  </button><label class="form-label" for="typePasswordX" > Contraseña</label>
+                  
+                  <button class="btn btn-outline-light btn-lg px-5 B_Iniciar"  value="Iniciar"  style=" margin-top: 30px;" >continuar</button>
                 </form>
               </div>
 
@@ -94,7 +97,26 @@ if (!empty($_SESSION['active'])) {
       </div>
     </div>
   </footer>
-
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+          <script type="text/javascript">
+            function mostrarPassword(){
+                var cambio = document.getElementById("clave");
+                if(cambio.type == "password"){
+                  cambio.type = "text";
+                  $('.icon').removeClass('fa fa-eye-slash').addClass('fa fa-eye');
+                }else{
+                  cambio.type = "password";
+                  $('.icon').removeClass('fa fa-eye').addClass('fa fa-eye-slash');
+                }
+              } 
+              
+              $(document).ready(function () {
+              //CheckBox mostrar contraseña
+              $('#ShowPassword').click(function () {
+                $('#Password').attr('type', $(this).is(':checked') ? 'text' : 'password');
+              });
+            });
+            </script>
 
 </body>
 
