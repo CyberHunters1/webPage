@@ -22,7 +22,7 @@ document.getElementById('btn_agregar').addEventListener('click', function() {
               <div class="w-100 d-none d-md-block"></div>
 
               <div class="col-md-6 col-12 padd-top-btm-10 ">
-                <div class="Datos"><input class="form-control" type="text" placeholder="Contraseña" id="password" required></div>
+                <div class="Datos"><input class="form-control" type="password" placeholder="Contraseña" id="password" required></div>
               </div>
               <div class="col-md-6 col-12 padd-top-btm-10 ">
                 <div class="Datos"><input class="form-control" type="text" placeholder="RFC" id="rfc" required></div>

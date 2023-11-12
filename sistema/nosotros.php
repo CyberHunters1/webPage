@@ -20,20 +20,8 @@
   </head>
 
   <body>
-    <header class="main-header clearfix" role="header">
-      <div class="logo">
-        <a href="#">
-        
-        <em>Cyber</em>Hunt<em>ers</em></a>
-    </div>
+    <header >
 
-      <a href="#menu" class="menu-link"><i class="fa fa-bars"></i></a>
-
-      <nav id="menu" class="main-nav" role="navigation">
-        <ul class="main-menu">
-          <li><a href="index.php">Pagina de Inico</a></li>
-        </ul>
-      </nav>
     </header>
 
     <section class="section main-banner" id="top" data-section="section1">
@@ -44,7 +32,7 @@
       <div class="video-overlay header-text">
         <div class="caption">
           
-          <h2><em>CyberHunters </em> ¿Quienes Somos?</h2>
+          <h2><em>CyberHunters </em> <br><br><br>¿Quienes Somos?</h2>
             <br />
           
           <br />  
@@ -57,92 +45,21 @@
       </div>
     </section>
 
-    <section class="features">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-12">
-            <div class="features-post">
-              <div class="features-content">
-                <div class="content-show">
-                  <h4><i class="fa fa-pencil"></i>¿Qué hacemos?</h4>
-                </div>
-                <div class="content-hide">
-                  <p style="text-align: justify;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <p class="hidden-sm">
-                    Curabitur id eros vehicula, tincidunt libero eu, lobortis
-                    mi. In mollis eros a posuere imperdiet.
-                  </p>
-                  <div class="scroll-to-section">
-                    <a href="#section2">Más información</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-12">
-            <div class="features-post second-features">
-              <div class="features-content">
-                <div class="content-show">
-                  <h4><i class="fa fa-graduation-cap"></i>Compañia</h4>
-                </div>
-                <div class="content-hide">
-                  <p style="text-align: justify;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <p class="hidden-sm">
-                    Curabitur id eros vehicula, tincidunt libero eu, lobortis
-                    mi. In mollis eros a posuere imperdiet.
-                  </p>
-                  <div class="scroll-to-section">
-                    <a href="#section5">Detalles</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4 col-12">
-            <div class="features-post third-features">
-              <div class="features-content">
-                <div class="content-show">
-                  <h4><i class="fa fa-book"></i>Nuestros proyectos</h4>
-                </div>
-                <div class="content-hide">
-                  <p style="text-align: justify;">
-                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                  </p>
-                  <p class="hidden-sm">
-                    Curabitur id eros vehicula, tincidunt libero eu, lobortis
-                    mi. In mollis eros a posuere imperdiet.
-                  </p>
-                  <div class="scroll-to-section">
-                    <a href="#section4">Saber más</a>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    
 
     <section class="section why-us" data-section="section2">
       <div class="container">
         <div class="row">
           <div class="col-md-12">
             <div class="section-heading">
-              <h2>¿Quienes somos?</h2>
+              <h2>Un Poco De Nosotros</h2>
             </div>
           </div>
           <div class="col-md-12">
             <div id="tabs">
               <ul>
                 <li><a href="#tabs-1">Objetivo</a></li>
-                <li><a href="#tabs-2">Areas de Conocimiento</a></li>
+                <li><a href="#tabs-2">Mison</a></li>
                 <li><a href="#tabs-3">¿A quien va dirigido?</a></li>
               </ul>
               <section class="tabs-content">
@@ -154,9 +71,8 @@
                     <div class="col-md-6">
                       <h4>Objetivo</h4>
                       <p>
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                         
+                      El objetivo esta pagina de CyberHunters es proporcionar una plataforma segura y eficiente para la gestión de nóminas de nuestros  empleados, al tiempo que garantiza la más alta calidad en seguridad cibernética.
+                       Nuestra plataforma está diseñada para ayudar a nuestra empresas a proteger la información confidencial de los empleados mientras facilita la consulta y edición de las nóminas de manera conveniente.
                       </p>
                     </div>
                   </div>
@@ -167,11 +83,12 @@
                       <img src="../src/images/choose-us-image-02.png" alt="" />
                     </div>
                     <div class="col-md-6">
-                      <h4>Areas de Conocimiento</h4>
-                      Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                      Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
-                    </div>
+                      <h4>Mison</h4>
+                      <p>
+                      CyberHunters es una empresa de seguridad informática altamente especializada en la protección de sistemas y datos sensibles en un mundo digital en constante evolución.
+                       Nuestra misión es ser los guardianes digitales de nuestros clientes, brindando soluciones de seguridad cibernética de vanguardia que les permitan operar en un entorno en línea seguro y confiable.
+                       </p>
+                      </div>
                   </div>
                 </article>
                 <article id="tabs-3">
@@ -182,9 +99,9 @@
                     <div class="col-md-6">
                         <h4>¿A quien va dirigido?</h4>
                         <p>
-                          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-                          Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-                        </p>
+                        La compañía  CyberHunters busca  dirigirse a una amplia variedad de clientes y organizaciones
+                        que buscan proteger sus activos digitales y salvaguardar la seguridad cibernética.
+                      </p>
                     </div>
                   </div>
                 </article>
@@ -203,7 +120,7 @@
               <span>Te presentamos nuestro nido</span>
               <h4><em>FES ARAGON</em></h4>
               <p style="text-align: justify;">
-                Somos la Facultad de Estudios Superiores Aragón y pertenecemos a la oferta de educación superior de la Universidad Nacional Autónoma de México, ofreciendo catorce licenciaturas acreditadas y diversos posgrados en los sistemas escolarizado y abierto.
+                Pertenecemos a la  Facultad de Estudios Superiores Aragón y somos parte de la oferta de educación superior que ofrece la Universidad Nacional Autónoma de México,esta  ofrece catorce licenciaturas acreditadas y diversos posgrados en los sistemas escolarizado y abierto.
                
                 <br /><br />Sí quieres conocer más acerca de las carreras que se imparten puedes
                 visitar la siguiente pagina.
@@ -247,21 +164,7 @@
     
 
 
-    <footer>
-      <div class="container">
-        <div class="row">
-          <div class="col-md-12">
-            <p>
-              <i class="fa fa-copyright"></i> Copyright 2023 by CyberHunters |
-              Diseño:
-              <a href="https://templatemo.com" rel="sponsored" target="_parent"
-                >CyberHunters</a
-              >
-            </p>
-          </div>
-        </div>
-      </div>
-    </footer>
+
 
     <script src="../src/js/jquery/jquery.min.js"></script>
     <script src="../src/js/bootstrap.bundle.min.js"></script>

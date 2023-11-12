@@ -49,7 +49,7 @@ if (empty($_SESSION['active'])) {
                     <a href="nominas.html">Nominas</a>
                 </li>
                 <li>
-                    <a href="nosotros.html">Acerca de Nosotros</a>
+                    <a href="nosotros.php">Acerca de Nosotros</a>
                 </li>
                 <li class="justify-content-center padd-top-btm-10 d-sm-inline-block d-flex">
                     <form action="../controllers/close_session.php" method="post" class="logout d-inline">

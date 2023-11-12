@@ -144,14 +144,34 @@ function renderTable() {
       html: `
               <h4 class="text-uppercase"><em>Agregue los nuevos datos del usuario.</em></h4>
               <form id="Formulario_Agregar">
-              <div class="Datos"><input type="text" value="${valoresTd[2]}" placeholder="Nombre" id="nombre" required></div>
-              <div class="Datos"><input type="text" value="${valoresTd[3]}"placeholder="Apellido Paterno" id="apellido_P" required></div>
-              <div class="Datos"><input type="text" value="${valoresTd[4]}"placeholder="Apellido Materno" id="apellido_M" required></div>
-              <div class="Datos"><input type="text" placeholder="Contraseña" id="password" required></div>
-              <div class="Datos"><input type="text" value="${valoresTd[1]}"placeholder="RFC" id="rfc" required></div>
-              <div class="Datos"><input type="number" placeholder="Rol" id="rol" required></div>
-              <div class="Datos"><input type="number" placeholder="Salario" id="salario" required></div>
-              </form>
+            <div class="row">
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" value="${valoresTd[2]}" placeholder="Nombre" id="nombre" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" value="${valoresTd[3]}" placeholder="Apellido Paterno" id="apellido_P" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" value="${valoresTd[4]}" placeholder="Apellido Materno" id="apellido_M" required></div>
+              </div>
+              <div class="w-100 d-none d-md-block"></div>
+
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="password" placeholder="Contraseña" id="password" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="text" value="${valoresTd[1]}" placeholder="RFC" id="rfc" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="number" placeholder="Rol" id="rol" required></div>
+              </div>
+              <div class="col-md-6 col-12 padd-top-btm-10 ">
+                <div class="Datos"><input class="form-control" type="number" placeholder="Salario" id="salario" required></div>
+              </div>
+
+            </div>
+            
+            </form>
             `,
       width: '60%',
       background: '#FFFFFF',
