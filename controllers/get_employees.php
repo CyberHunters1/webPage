@@ -10,7 +10,6 @@ if (isset($_GET['accion'])) {
 
         $collection = $firestore->collection('empleados');
         $documents = $collection->documents();
-
         $empleados = array();
 
         if (!empty($documents)) {
@@ -19,19 +18,18 @@ if (isset($_GET['accion'])) {
                 $id_doc = $document->name();
                 $id_doc = substr($id_doc, strrpos($id_doc, '/') + 1);
 
-                if($_SESSION['rol'] == '1' or $id_doc== $_SESSION['id_usr']){
-                    $salario= $dato['salario'];
+                if ($_SESSION['rol'] == '1' or $id_doc == $_SESSION['id_usr']) {
+                    $salario = '$ ' . number_format($dato['salario'], 2, '.', ',');
+                } else {
+                    $salario = 'Privado';
                 }
-                else{
-                    $salario= 'Privado';
-                }
-                $salarioFormateado = number_format($salario, 2, '.', ',');
+                
                 $empleado = array(
                     'rfc' => $dato['rfc'],
                     'nombre' => mb_convert_encoding($dato['nombre'], "UTF-8", mb_detect_encoding($dato['nombre'])),
                     'ap_p' => mb_convert_encoding($dato['ap_p'], "UTF-8", mb_detect_encoding($dato['ap_p'])),
                     'ap_m' => mb_convert_encoding($dato['ap_m'], "UTF-8", mb_detect_encoding($dato['ap_m'])),
-                    'salario' => $salarioFormateado
+                    'salario' => $salario
                 );
                 $empleados[$id_doc] = $empleado;
             }
