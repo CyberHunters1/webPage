@@ -2,8 +2,8 @@
 header('Content-Type: text/html; charset=UTF-8');
 session_start();
 
-if (isset($_GET['accion'])) {
-    $accion = $_GET['accion'];
+if (isset($_POST['accion'])) {
+    $accion = $_POST['accion'];
 
     if ($accion == 'obtener_empleados') {
         require "../models/conexion.php";
@@ -31,7 +31,7 @@ if (isset($_GET['accion'])) {
                     'ap_m' => mb_convert_encoding($dato['ap_m'], "UTF-8", mb_detect_encoding($dato['ap_m'])),
                     'salario' => $salario
                 );
-                $empleados[$id_doc] = $empleado;
+                $empleados[base64_encode($id_doc)] = $empleado;
             }
         } else {
             echo json_encode(array('mensaje' => 'No se encontraron datos en Firebase.'));

@@ -30,23 +30,22 @@ const initDataTable = (dat) => {
 
   $.ajax({
     url: '../controllers/get_table.php',
-    method: 'GET',
+    method: 'POST',
     data: {
       accion: 'imp_tabla',
       users: JSON.parse(dat),
     },
     success: function (response) {
       tableBody_Users.innerHTML = response;
-      setTimeout(() => {
-        dataTable = $("#datatable_users").DataTable(dataTableOptions);
-      }, 10);
+      dataTable = $("#datatable_users").DataTable(dataTableOptions);
       dataTableIsInitialized = true;
 
 
 
     },
-    error: function () {
+    error: function (e) {
       $('#respuesta').html('Error al obtener empleados.');
+
     }
   });
 };
@@ -55,7 +54,7 @@ const initDataTable = (dat) => {
 const get_employees = () => {
   $.ajax({
     url: '../controllers/get_employees.php',
-    method: 'GET',
+    method: 'POST',
     data: {
       accion: 'obtener_empleados'
     },
@@ -223,10 +222,12 @@ function renderTable() {
                   token: token
                 },
                 success: function (data) {
-                  console.log(data);
                   if(data==0){
-                    resolve("RFC NO VALIDO");
-                  }else{
+                    resolve("RFC no válida");
+                  }else if(data==1){
+                    resolve("Contraseña no válida");
+                  }
+                  else{
                     simbolo='success'
                   get_employees();
                   resolve(mensaje);}

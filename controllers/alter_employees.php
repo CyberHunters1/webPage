@@ -2,28 +2,28 @@
 session_start();
 require_once '../models/conexion.php';
 
-if($_SERVER['REQUEST_METHOD']=='POST'){
+if($_SERVER['REQUEST_METHOD']=='POST' && $_SESSION['rol']==1){
+
+    $regexFisica = '/^[A-Z&Ñ]{4}\d{6}[A-Z0-9]{3}$/i';
+    $caracteresEspeciales = array(',', ';', ':', '.', '/', '-', '"', "'", '+', '[', ']', '{', '}', '*');
 
     $rfc=$_POST['rfc'];
 
-    $regexFisica = '/^[A-Z&Ñ]{4}\d{6}[A-Z0-9]{3}$/i';
+    $ap = rtrim(preg_replace("/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s]/u", "", $_POST['ap_p']));
+    $am = rtrim(preg_replace("/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s-]/u", "", $_POST['ap_m']));
+    $nom = rtrim(preg_replace("/[^a-zA-ZáéíóúÁÉÍÓÚüÜñÑ\s-]/u", "", $_POST['nombre']));
+    $salario = rtrim(filter_var($_POST['salario'], FILTER_SANITIZE_NUMBER_INT));
+    $rol = ($_POST['rol']!= 1) ? 2 : 1;
+
+    $pass=str_replace($caracteresEspeciales, '', $_POST['token']);
     
     $rfc = strtoupper(str_replace(' ', '', $rfc));
      
-     // Validar formato
-     if (!(preg_match($regexFisica, $rfc))) {
-        echo 0;
+    if (!preg_match($regexFisica, $rfc) || strlen($pass) < 8) {
+        echo !preg_match($regexFisica, $rfc) ? 0 : 1;
     } else{
 
-        $nombre=$_POST['nombre'];
-        $ap_p=$_POST['ap_p']; 
-        $ap_m=$_POST['ap_m'];
-        $rol=$_POST['rol'];
-        $salario=$_POST['salario'];
-
-        $id=base64_decode($_POST['token']);
-        $password=hash('sha256', $_POST['password']);
-
+        $pass = hash('sha256', $pass);
         $nuevosDatos = [
             ['path' => 'salario', 'value'=>$salario],
             ['path' => 'nombre', 'value'=>$nombre], 

@@ -3,8 +3,8 @@ header('Content-Type: text/html; charset=UTF-8');
 require_once "../models/conexion.php";
 session_start();
 
-if (isset($_GET['accion'])) {
-    $accion = $_GET['accion'];
+if (isset($_POST['accion'])) {
+    $accion = $_POST['accion'];
 
     if ($accion === 'imp_tabla') {
         $users = $_REQUEST['users'];
@@ -12,7 +12,7 @@ if (isset($_GET['accion'])) {
         $content = '';
 
         foreach ($users as $id_usr => $user) {
-            $content .= '<tr data-id="'.base64_encode($id_usr).'">
+            $content .= '<tr data-id="'.$id_usr.'">
                 <td>' . $cont . '</td>
                 <td>' . $user['rfc'] . '</td>
                 <td>' . $user['nombre'] . '</td>

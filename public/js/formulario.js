@@ -89,6 +89,8 @@ document.getElementById('btn_agregar').addEventListener('click', function() {
 
                   if(data==0){
                     resolve("RFC no válido.");
+                  }else if(data==1){
+                    resolve("Contraseña no válida");
                   }else{
                   simbolo='success';
                   get_employees();
