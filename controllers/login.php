@@ -13,7 +13,7 @@ session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
-  $caracteresEspeciales = array(',', ';', ':', '.', '/', '-', '"', "'", '+', '[', ']', '{', '}', '*');
+  $caracteresEspeciales = array(',', ';', '.', '"', "'");
 
   if (empty($_POST['usuario'] || $_POST['clave'])) {
     echo '<script>
@@ -61,7 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 Swal.fire({
                     icon: "error",
                     title: "Credenciales incorrectas",
-                    text: "Las credenciales proporcionadas no son válidas.",
+                    text: "'.$data['password'].'Las credenciales proporcionadas no son válidas '.$key.'.",
                     confirmButtonText: "Aceptar"
                 }).then(function(result) {
                     if (result.isConfirmed) {

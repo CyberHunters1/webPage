@@ -5,7 +5,7 @@ require_once '../models/conexion.php';
 if($_SERVER['REQUEST_METHOD']=='POST' && $_SESSION['rol']==1){
 
     $regexFisica = '/^[A-Z&Ñ]{4}\d{6}[A-Z0-9]{3}$/i';
-    $caracteresEspeciales = array(',', ';', ':', '.', '/', '-', '"', "'", '+', '[', ']', '{', '}', '*');
+    $caracteresEspeciales = array(',', ';', '.', '"', "'");
 
     $rfc=$_POST['rfc'];
 
